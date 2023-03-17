@@ -1,6 +1,10 @@
 # News-Website---Web-Development
 
-This is an individual assignment done for COursework 2 of the Web Development module. This is a responsive news website is done with HTML, CSS and Javascript, along with Mustache templating system for the content of the website.
+https://news-website-web-development-cu2p35i8s-wanqian99.vercel.app
+
+<br><br>
+This is an individual assignment done for Coursework 2 of the Web Development module. This is a responsive news website is done with HTML, CSS and Javascript, along with Mustache templating system for the content of the website.
+<br>
 
 ### 1) Home Page
 <kbd><img src="https://user-images.githubusercontent.com/62084317/225923962-586a2b64-5868-41e2-8174-737f2af028b5.png" width="800"></kbd>
