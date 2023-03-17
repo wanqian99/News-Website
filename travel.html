@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WWNews: Travel</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="News, Website, Newsletter">
+        <meta name="description" content="This is a News website.">
+        <meta name="author" content="Gao WanQian">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name=”robots” content=”noindex,nofollow”>
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="javascript/template.js" defer></script>
+        <script src="javascript/travel.js" defer></script>
+    </head>
+    
+    <body>
+        <header>
+            <div class="grid-container">
+                <div class="item1">
+                    <p>
+                        <span class="small" id="smallA">A</span>
+                        <span class="medium" id="mediumA">A</span>
+                        <span class="large" id="largeA">A</span>
+                    </p>
+                </div>
+                
+                <div class="item2">
+                    <a href="index.html">
+                      <img src="resources/index/WWNEWS.png" alt="WWNews">
+                    </a>
+                </div>
+                
+                <div class="item3">
+                    <!-- Login Menu -->
+                    <button class="loginBtn" onclick="loginFunction()">
+                        <img src="resources/index/userlogin.png" alt="userlogin">
+                    </button>
+                    <div id="loginForm" class="loginmodal">
+                      <form class="loginmodal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                          <span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close">&times;</span>
+                          <img src="resources/index/WWNEWSlogo.png" alt="WWNews logo" class="formlogo">
+                        </div>
+                          
+                        <div class="socialmedia">
+                            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                            <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                            <a href="https://www.google.com" class="fa fa-google"></a>
+                        </div>
+                          
+                        <p>or</p>
+
+                        <div class="logincontainer">
+                          <label><b>Email Address:</b></label>
+                          <input type="text" placeholder="Enter Email" name="email" required>
+
+                          <label><b>Password:</b></label>
+                          <input type="password" placeholder="Enter Password" name="psw" required>
+
+                          <button type="submit" class="btnLogin">Login</button>
+                          <button type="submit" class="btnRegister" onclick="index.html">Register</button>
+                          <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    
+                    <a href="subscribe.html" class="subscribebtn">
+                        <b>Subscribe</b>
+                    </a>
+                </div>
+                
+                <div class="item4">
+                    <div class="topnav" id="myTopnav">
+                      <a href="trending.html">TRENDING</a>
+                      <a href="world.html">WORLD</a>
+                      <div class="dropdown">
+                        <button class="dropbtn active">
+                            LIFESTYLE 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                          
+                        <div class="dropdown-content">
+                          <a href="travel.html">TRAVEL</a>
+                          <a href="food.html">FOOD</a>
+                        </div>
+                          
+                      </div> 
+                      <a href="sports.html">SPORTS</a>
+                      <a href="politics.html">POLITICS</a>
+                      <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+                    <form class="search" action="https://www.google.com/search" method="get" target="_blank">
+                        <input type="text" name="q" placeholder="Search..." >
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        
+        <main>
+            <br>
+            <div class="img-container">
+                <img src="resources/travel/travel.jpeg" class="image" alt="Travel Image">
+                <div class="categorytext">
+                    TRAVEL
+                </div>
+                <div class="categorydescriptiontext">
+                    <p>WNNews: Stay informed with Latest Travel and Tourism News from around the world</p>
+                </div>
+            </div>
+            
+            <!--used handlebars method to display the article image, title and overlay-->
+            <p class="headings">EDITOR'S PICK</p>
+            <hr>
+            <div id="editorpickaction"></div>
+            <script id="editorpick-template" type="template/handlebars">
+            {{#each news}}
+            <div class="editorspick-container">
+                <div class="articles">
+                    <a href="{{link}}">
+                        <img src="resources/travel/articles_images/{{image}}.jpeg">
+                        <div class="overlay">
+                            <div class="text">
+                                <div class="titletext">
+                                    <b>{{title}}</b>
+                                </div>
+                                <div class="contenttext">
+                                    {{description}}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+            </script>
+            
+            <!--gallery-container referenced from: https://www.w3schools.com/howto/howto_js_lightbox.asp, styled it with my own CSS, made it fit the theme of my website.-->
+            <div class="gallery-container">
+                <br><br>
+                <div class="galleryrow">
+                    <div class="gallerycolumn left">
+                        <b>PHOTO GALLERY</b>
+                    </div>
+                <div class="gallery">    
+                    <div class="gallerycolumn right">
+                        <img src="resources/travel/gallery_images/winter_sunset.jpg" alt="winter_sunset" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                    </div>
+                    <div class="gallerycolumn right">
+                        <img src="resources/travel/gallery_images/gutsch_mountain.jpg" alt="gutsch_mountain" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                    </div>
+                    <div class="gallerycolumn right">
+                        <img src="resources/travel/gallery_images/swiss_alps.jpg" alt="swiss_alps" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                    </div>
+                    <div class="gallerycolumn right">    
+                        <img src="resources/travel/gallery_images/town_of_andermatt.jpg" alt="town_of_andermatt" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                    </div>
+                    <div class="gallerycolumn right">
+                        <img src="resources/travel/gallery_images/andermatt_ski_slope.jpg" alt="andermatt_ski_slope" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                    </div>
+                    <div class="gallerycolumn right">
+                        <img src="resources/travel/gallery_images/walser_houses.jpg" alt="walser_houses" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                    </div>
+                    
+                    <div class="galleryrow">
+                    <div class="titletext">
+                        <b>ANDERMATT&nbsp;&nbsp;-&nbsp;&nbsp;A VILLAGE IN SWITZERLAND</b>
+                    </div>
+                    <div class="contenttext">
+                        Andermatt (1444 m) lies at the heart of Switzerland’s Alpine passes, and is the largest of the three villages in the valley; it's at the crossroads of the mountain passes from north to south and from east to west.The variety of tour options with the eight surrounding Alpine passes is unique worldwide.
+                    </div>
+                    </div>
+                </div>
+                
+                </div>
+                <div id="myModal" class="modalgallery">
+                    <span class="closegallerymodal cursor" onclick="closeModal()">&times;</span>
+                    <div class="modalgallery-content">
+
+                        <div class="mySlides">
+                          <div class="numbertext">1 / 6</div>
+                          <img src="resources/travel/gallery_images/winter_sunset.jpg" alt="winter_sunset" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <div class="numbertext">2 / 6</div>
+                          <img src="resources/travel/gallery_images/gutsch_mountain.jpg" alt="gutsch_mountain" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <div class="numbertext">3 / 6</div>
+                          <img src="resources/travel/gallery_images/swiss_alps.jpg" alt="swiss_alps" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <div class="numbertext">4 / 6</div>
+                          <img src="resources/travel/gallery_images/town_of_andermatt.jpg" alt="town_of_andermatt" style="width:100%">
+                        </div>
+                        
+                        <div class="mySlides">
+                          <div class="numbertext">5 / 6</div>
+                          <img src="resources/travel/gallery_images/andermatt_ski_slope.jpg" alt="andermatt_ski_slope" style="width:100%">
+                        </div>
+                        
+                        <div class="mySlides">
+                          <div class="numbertext">6 / 6</div>
+                          <img src="resources/travel/gallery_images/walser_houses.jpg" alt="walser_houses" style="width:100%">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                        <div class="caption-container">
+                          <p id="caption"></p>
+                        </div>
+
+
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/winter_sunset.jpg" alt="winter_sunset" style="width:100%" onclick="currentSlide(1)" alt="A winter sunset in Andermatt town">
+                        </div>
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/gutsch_mountain.jpg" alt="gutsch_mountain" style="width:100%" onclick="currentSlide(2)" alt="Gigantic wind turbines atop the Gutsch mountain">
+                        </div>
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/swiss_alps.jpg" alt="swiss_alps" style="width:100%" onclick="currentSlide(3)" alt="Outdoor sitting at Schneehuenerstock, where you can take in the fresh air and panoramic view of the Swiss Alps,">
+                        </div>
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/town_of_andermatt.jpg" alt="town_of_andermatt" style="width:100%" onclick="currentSlide(4)" alt="The town of Andermatt is nestled in the Swiss Alps, about 1,400m above sea level">
+                        </div>
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/andermatt_ski_slope.jpg" alt="andermatt_ski_slope" style="width:100%" onclick="currentSlide(5)" alt="The ski slopes of Andermatt">
+                        </div>
+                        <div class="modalgallerycolumn">
+                          <img class="demo cursor" src="resources/travel/gallery_images/walser_houses.jpg" alt="walser_houses" style="width:100%" onclick="currentSlide(6)" alt="The Old Town part of Andermatt consists of wooden Walser-style houses">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--used handlebars method to display the article image and title, article modal referenced from: https://codepen.io/chin-ngh/pen/MdZdee, added to display article text in the modal window, and styled it with my own css-->
+            <div class="explore-container">
+                <a id="Travel1"></a>
+                <p class="headings">EXPLORE</p>
+                <hr>                        
+                <div id="page">
+                    <div id="travelnewsaction"></div>
+                    <script id="travelnews-template" type="template/handlebars">
+                    {{#each news}}
+                      <div class="list-group">
+                        <a href="javascript:void(0)" class="list-group-item active">
+                            <div class="articletext">
+                                <div class="minutes">
+                                    <i class="fa fa-clock-o"></i>
+                                    {{mins}}
+                                </div>
+                                <img src="resources/travel/articles_images/{{image}}.jpeg" class="image">
+                                <div class="titletext">
+                                    <b>{{title}}</b>
+                                </div>
+                                <div class="contenttext">
+                                    {{description}}
+                                </div>
+                                <!-- Trigger/Open The Modal -->
+                                <button id="myBtn-{{@index}}" class="readmorebtn">Read more</button>
+                                <br>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- The Modal -->
+                        <div id="myModal-{{@index}}" class="modalarticle">
+                            <!-- Modal content -->
+                            <div class="modalarticle-content">
+                                <span class="closearticle" id="closearticle-{{@index}}">&times;</span>
+                                <img src="resources/travel/articles_images/{{image}}.jpeg" class="image">
+                                <div class="titletext">
+                                    <b>{{title}}</b>
+                                </div>
+                                <div class="contenttext">
+                                    <b>{{description}}</b>
+                                    <p>{{article1}}</p>
+                                    <p>{{article2}}<p>
+                                    <p>{{article3}}<p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                    </script>
+                  </div>
+                
+                <!--Pagination referenced from: https://codepen.io/gugui3z24/pen/VzZzgr?editors=1000, added my own css and styled it-->
+                <div class="center">
+                    <div class=pagination>
+                        <div id="previous-page">
+                            <a href="javascript:void(0)" aria-label=Previous>
+                                <span aria-hidden=true>&laquo;</span>
+                            </a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="subscribeformore-container">
+                <p><b>Get unlimited access to all stories at $3.99/month</b></p>
+                <ul>
+                  <li>Latest headlines and exclusive stories</li>
+                  <li>In-depth analyses and award-winning multimedia content</li>
+                  <li>Get access to all with our no-contract promotional package at only $0.99/month for the first 3 months</li>
+                    *Terms and conditions apply.
+                </ul> 
+                <a href="subscribe.html" class="subscribebtn">
+                    <b>SIGN UP</b>
+                </a>
+            </div>
+        </main>
+    </body>
+    
+    <footer>
+        <div class="footer">
+            <hr>
+            <div class="leftfooter">
+                <a href="about.html#About1">
+                    <p>About Us</p>
+                </a>
+                <a href="about.html#About2">
+                    <p>Contact Us</p>
+                </a>
+                <a href="about.html#About3">
+                    <p>Join Us</p>
+                </a>
+                <a href="about.html#About4">
+                    <p>Privacy Policy</p>
+                </a>
+                <a href="about.html#About5">
+                    <p>Terms and Conditions</p>
+                </a>
+            </div>
+            <div class="rightfooter">
+                <p>©2020 WWNews Corporation. All Rights Reserved.</p>
+                <p>Follow our news</p>
+                <a href="https://www.facebook.com" class="fa fa-facebook" target="_blank"></a>
+                <a href="https://www.instagram.com" class="fa fa-instagram" target="_blank"></a>
+                <a href="https://www.twitter.com" class="fa fa-twitter" target="_blank"></a>
+                <a href="https://www.youtube.com" class="fa fa-youtube-play" target="_blank"></a>
+            </div>
+        </div>
+    </footer>
+</html>

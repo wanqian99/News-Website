@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WWNews: Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="News, Website, Newsletter">
+        <meta name="description" content="This is a News website.">
+        <meta name="author" content="Gao WanQian">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name=”robots” content=”noindex,nofollow”>
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="javascript/template.js" defer></script>
+        <script src="javascript/index.js" defer></script>
+    </head>
+    
+    <body>
+        <header>
+            <div class="grid-container">
+                <div class="item1">
+                    <p>
+                        <span class="small" id="smallA">A</span>
+                        <span class="medium" id="mediumA">A</span>
+                        <span class="large" id="largeA">A</span>
+                    </p>
+                </div>
+                
+                <div class="item2">
+                    <a href="index.html">
+                      <img src="resources/index/WWNEWS.png" alt="WWNews">
+                    </a>
+                </div>
+                
+                <div class="item3">
+                    <!-- Login Menu -->
+                    <!--basic functions of login form referenced from W3schools: https://www.w3schools.com/howto/howto_css_login_form.asp, edited the html and added my own CSS-->
+                    <!--added a loginFunction()-->
+                    <button class="loginBtn" onclick="loginFunction()">
+                        <img src="resources/index/userlogin.png" alt="userlogin">
+                    </button>
+                    <div id="loginForm" class="loginmodal">
+                      <form class="loginmodal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                          <span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close">&times;</span>
+                          <img src="resources/index/WWNEWSlogo.png" alt="WWNews logo" class="formlogo">
+                        </div>
+                        <!--added social media login-->
+                        <div class="socialmedia">
+                            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                            <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                            <a href="https://www.google.com" class="fa fa-google"></a>
+                        </div>
+                          
+                        <p>or</p>
+                        <!--edited label and inputs, and added a register button-->
+                        <div class="logincontainer">
+                          <label><b>Email Address:</b></label>
+                          <input type="text" placeholder="Enter Email" name="email" required>
+
+                          <label><b>Password:</b></label>
+                          <input type="password" placeholder="Enter Password" name="psw" required>
+
+                          <button type="submit" class="btnLogin">Login</button>
+                          <button type="submit" class="btnRegister" onclick="index.html">Register</button>
+                          <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    
+                    <a href="subscribe.html" class="subscribebtn">
+                        <b>Subscribe</b>
+                    </a>
+                </div>
+                
+                <div class="item4">
+                    <div class="topnav" id="myTopnav">
+                      <a href="trending.html">TRENDING</a>
+                      <a href="world.html">WORLD</a>
+                      <div class="dropdown">
+                        <button class="dropbtn">LIFESTYLE 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                          
+                        <!--dropdown-content referenced from W3schools: https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp, edited and added my own CSS-->
+                        <div class="dropdown-content">
+                          <a href="travel.html">TRAVEL</a>
+                          <a href="food.html">FOOD</a>
+                        </div>
+                          
+                      </div> 
+                      <a href="sports.html">SPORTS</a>
+                      <a href="politics.html">POLITICS</a>
+                      <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+                    <form class="search" action="https://www.google.com/search" method="get" target="_blank">
+                        <input type="text" name="q" placeholder="Search..." >
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        
+        <main>
+            <div class ="row">
+                <div class ="column left">
+                    <p class="headings">TRENDING</p>
+                    <hr>
+                    <!--slideshow referenced from W3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp, edited to make it fit into the left column, and added CSS-->
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="resources/index/world-slideshow.jpg" class="image" alt="World Image">
+                            <!--added 'linked' text on slideshow, as well as description text-->
+                            <div class="slideshowcategorytext">
+                                <a href="world.html">
+                                    WORLD
+                                </a>
+                            </div>
+                            <div class="descriptiontext">
+                                <a href="world.html#World1">
+                                    <h2>COVID-19 VACCINES</h2>
+                                    <p>UK buys more potential COVID-19 vaccines from J&J and Novavax, bringing the total number of deals by the UK government to six</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img src="resources/index/travel-slideshow.jpg" class="image" alt="Travel Image">
+                            <div class="slideshowcategorytext">
+                                <a href="travel.html">
+                                    TRAVEL
+                                </a>
+                            </div>
+                            <div class="descriptiontext">
+                                <a href="travel.html#Travel1">
+                                    <h2>AMAZING ANDERMATT</h2>
+                                    <p>The ski town of Andermatt in the heart of the Swiss Alps is a hidden gem - for now - but may not stay that way for long</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="resources/index/politics-slideshow.jpg" class="image" alt="Politics Image">
+                            <div class="slideshowcategorytext">
+                                <a href="politics.html">
+                                    POLITICS
+                                </a>
+                            </div>
+                            <div class="descriptiontext">
+                                <a href="politics.html#Politics1">
+                                    <h2>TRUMP</h2>
+                                    <p>Ignoring warnings from election officials, Trump again suggests supporters should try to vote twice</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                    
+                    <div class="spotlight-container">
+                        <div class="spotlighttitle">
+                            <p>SPOTLIGHT</p>
+                        </div>
+                        <div class="spotlightcontent">
+                            <a href="politics.html">
+                                <p class="nbr">1</p>
+                                <p>Trump declines to condemn Russia over Navalny poisoning</p>
+                            </a>
+                        </div>
+                        <div class="spotlightcontent">
+                            <a href="world.html">
+                                <p class="nbr">2</p>
+                                <p>Peru passes Belgium as world's deadliest Covid-19 hot spot</p>
+                            </a>
+                        </div>
+                        <div class="spotlightcontent">
+                            <a href="food.html">
+                                <p class="nbr">3</p>
+                                <p>Singapore eateries struggle with keeping rogue diners in check</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!--referenced from W3schools: https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp, edited to make the images 'side by side' and added CSS-->
+                    <p class="headings">CATEGORIES</p>
+                    <hr>
+                    <div class="categories-container">
+                        <div class="categories">
+                            <a href="travel.html">
+                                <img src="resources/index/categorytravel.jpg" alt="Travel Category">
+                                  <div class="overlay">
+                                    <div class="categoriestext"><b>TRAVEL</b></div>
+                                  </div>
+                            </a>
+                        </div>
+                        <div class="categories">
+                            <a href="food.html">
+                                <img src="resources/index/categoryfood.jpg" alt="Food Category">
+                                <div class="overlay">
+                                    <div class="categoriestext"><b>FOOD</b></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="categories">
+                            <a href="sports.html">
+                                <img src="resources/index/categorysports.jpg" alt="Sports Category">
+                                <div class="overlay">
+                                    <div class="categoriestext"><b>SPORTS</b></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="categories">
+                            <a href="politics.html">
+                                <img src="resources/index/categorypolitics.jpg" alt="Politics Category">
+                                <div class="overlay">
+                                    <div class="categoriestext"><b>POLITICS</b></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!--used handlebars method to display the article image and title-->
+                    <div class="homeworld-container">
+                        <p class="headings">WORLD</p>
+                        <hr>
+                        <div id="homeworldnewsaction"></div>
+                        <script id="homeworldnews-template" type="template/handlebars">
+                        {{#each news}}
+                        <div class="articletext">
+                            <a href="{{link}}">
+                                <img src="resources/world/article_images/{{image}}.jpeg" class="image">
+                                <div class="titletext">
+                                    <b>{{title}}</b>
+                                </div>
+                                <div class="contenttext">
+                                    {{description}}
+                                </div>
+                            </a>
+                            <br>
+                        </div>
+                        {{/each}}
+                        </script>
+                    </div>
+                    <div class="subscribe-container">
+                        <img src="resources/index/subscribebanner.jpg" alt="Subscribe Banner">
+                        <p>Sign up for our newsletter to get updated on the latest happenings!</p>
+                        <a href="subscribe.html" class="subscribebtn">
+                            <b>SIGN UP</b>
+                        </a>   
+                    </div>
+                </div>
+                
+                <!--used handlebars method to display the article image and title-->
+                <div class ="column right">
+                    <p class="headings">LATEST NEWS</p>
+                    <hr>
+                    <div id="latestnewsaction"></div>
+                    <script id="latestnews-template" type="template/handlebars">
+                    {{#each news}}
+                    <div class="articletext">
+                        <a href="{{link}}">
+                            <img src="resources/index/article_images/{{image}}.jpg" class="image">
+                            <div class="titletext">
+                                <b>{{title}}</b>
+                            </div>
+                            <div class="contenttext">
+                                {{description}}
+                            </div>
+                        </a>
+                        <br>
+                    </div>
+                    {{/each}}
+                    </script>
+                </div>
+            </div>
+        </main>
+    </body>
+    
+    <footer>
+        <hr>
+        <div class="leftfooter">
+            <a href="about.html#About1">
+                <p>About Us</p>
+            </a>
+            <a href="about.html#About2">
+                <p>Contact Us</p>
+            </a>
+            <a href="about.html#About3">
+                <p>Join Us</p>
+            </a>
+            <a href="about.html#About4">
+                <p>Privacy Policy</p>
+            </a>
+            <a href="about.html#About5">
+                <p>Terms and Conditions</p>
+            </a>
+        </div>
+        <div class="rightfooter">
+            <p>©2020 WWNews Corporation. All Rights Reserved.</p>
+            <p>Follow our news</p>
+            <a href="https://www.facebook.com" class="fa fa-facebook" target="_blank"></a>
+            <a href="https://www.instagram.com" class="fa fa-instagram" target="_blank"></a>
+            <a href="https://www.twitter.com" class="fa fa-twitter" target="_blank"></a>
+            <a href="https://www.youtube.com" class="fa fa-youtube-play" target="_blank"></a>
+        </div>
+    </footer>
+</html>
