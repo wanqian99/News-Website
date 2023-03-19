@@ -1,4 +1,4 @@
-# News-Website---Web-Development
+# News-Website
 
 https://news-website-web-development-cu2p35i8s-wanqian99.vercel.app
 
